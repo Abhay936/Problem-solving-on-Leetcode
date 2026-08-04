@@ -1,7 +1,6 @@
 class Solution {
     public int calPoints(String[] operations) {
         Stack<Integer> stk = new Stack<>();
-        int list[] = new int[operations.length];
         for(String str : operations){
             if(str.matches("-?\\d+")){
                 stk.push(Integer.parseInt(str));
