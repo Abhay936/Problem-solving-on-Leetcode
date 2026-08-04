@@ -12,10 +12,10 @@ class Solution {
                 stk.push(ch);
             }
         }
-        String str = "";
+        StringBuilder sb = new StringBuilder();
         for(char ch : stk){
-            str+=ch;
+            sb.append(ch);
         }
-        return str;
+        return sb.toString();
     }
 }
