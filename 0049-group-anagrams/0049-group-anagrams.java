@@ -10,7 +10,8 @@ class Solution {
             Arrays.sort(ch1);
 
             String key = new String(ch1);
-            map.computeIfAbsent(key, k -> new ArrayList<>()).add(strs[i]);
+            map.putIfAbsent(key, new ArrayList<>());
+            map.get(key).add(strs[i]);
         }
 
         return new ArrayList<>(map.values());
