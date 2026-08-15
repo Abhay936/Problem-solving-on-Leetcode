@@ -7,7 +7,6 @@ class Solution {
         }
 
         ArrayList<Integer> arr = new ArrayList<>();
-        HashMap<String,Integer> map = new HashMap<>();
 
         int low = 0,high = 0;
         int freq[] = new int[26];
