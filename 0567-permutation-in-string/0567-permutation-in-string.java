@@ -1,5 +1,6 @@
 class Solution {
     public boolean checkInclusion(String s1, String s2) {
+        //sorting method
      int n = s1.length();
      int m = s2.length();
      if(m<n) return false;
