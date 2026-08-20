@@ -2,24 +2,16 @@ class Solution {
     public int findMin(int[] nums) {
         int n = nums.length;
         int k = 0;
-        int min_1 = Integer.MAX_VALUE;
-        for(int i=1;i<n;i++){
-            if(nums[i]<nums[i-1]){
-                k=i;
-                break;
-            } 
-        }
-        if(k==0){
-            min_1 = nums[0];
-        }
-        else{
-            for(int i=k;i<n;i++){
-                if(min_1>nums[i]){
-                    min_1 = nums[i];
-                }
+        int low = 0,high = n-1;
+        while(low<high){
+            int mid = (low+high)/2;
+            if(nums[mid]>nums[high]){
+                low = mid+1;
+            }
+            else{
+                high = mid;
             }
         }
-        
-        return min_1;
+        return nums[low];
     }
 }
