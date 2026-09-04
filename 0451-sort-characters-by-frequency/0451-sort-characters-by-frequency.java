@@ -14,14 +14,14 @@ class Solution {
             }
             return Character.compare(a.getKey(),b.getKey());
         });
-        String str = "";
+        StringBuilder str = new StringBuilder();
         for (Map.Entry<Character, Integer> entry : list) {
             char ch = entry.getKey();
             int freq = entry.getValue();
             while (freq-- > 0) {
-                str += ch;
+                str.append(ch);
             }
         }
-        return str;
+        return str.toString();
     }
 }
