@@ -30,9 +30,8 @@ class Solution {
         while(!pq.isEmpty()){
             ListNode node = pq.poll();
 
-            tail.next = node;
-            tail = node;
-            tail.next = null; 
+            tail.next = new ListNode(node.val);
+            tail = tail.next;
         }
 
         return dummy.next;
