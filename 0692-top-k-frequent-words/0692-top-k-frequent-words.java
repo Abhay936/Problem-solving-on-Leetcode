@@ -5,17 +5,28 @@ class Solution {
         for(int i=0;i<n;i++){
             map.put(words[i],map.getOrDefault(words[i],0)+1);
         }
-        List<Map.Entry<String,Integer>> list = new ArrayList<>(map.entrySet());
-        List<String> lis = new ArrayList<>();
-        list.sort((a, b) -> {
+
+        PriorityQueue<Map.Entry<String,Integer>> pq = new PriorityQueue<>(k,(a,b)->
+        {
             if (!a.getValue().equals(b.getValue())) {
-                return Integer.compare(b.getValue(), a.getValue());
+            return Integer.compare(a.getValue(), b.getValue());
             }
-            return a.getKey().compareTo(b.getKey());
+        return b.getKey().compareTo(a.getKey());
         });
-        for(int i=0;i<k;i++){
-            lis.add(list.get(i).getKey());
+
+        for(Map.Entry<String,Integer> entry : map.entrySet()){
+            pq.offer(entry);
+            if(pq.size()>k){
+                pq.poll();
+            }
         }
-        return lis;
+
+        List<String> res = new ArrayList<>(k);
+        while(!pq.isEmpty()){
+            res.add(pq.poll().getKey());
+        }
+        Collections.reverse(res);
+
+        return res;
     }
 }
