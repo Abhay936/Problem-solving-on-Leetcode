@@ -6,22 +6,12 @@ class Solution {
         int index = 0;
 
         for(int i=0;i<n;i++){
-            int start = intervals[i][0];
-            int end = intervals[i][1];
-            if(index>0 && start<=ans[index-1][1]){
-                continue;
+            if(index==0 || intervals[i][0]>ans[index-1][1]){
+                ans[index] = intervals[i];  
+                index++; 
+            }else{
+                ans[index-1][1] = Math.max(ans[index-1][1],intervals[i][1]);
             }
-            for(int j=i+1;j<n;j++){
-                if(intervals[j][0]<=end){
-                    end = Math.max(end,intervals[j][1]);
-                    i = j;
-                }else{
-                    break;
-                }
-            }
-            ans[index][0] = start;
-            ans[index][1] = end;
-            index++;
         }
         return Arrays.copyOf(ans,index);
     }
