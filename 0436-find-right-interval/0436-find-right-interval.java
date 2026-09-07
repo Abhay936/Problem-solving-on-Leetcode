@@ -16,7 +16,7 @@ class Solution {
 
             int end = arr[i][1];
 
-            for (int j = 0; j < n; j++) {
+            for (int j = i; j < n; j++) {
 
                 if (arr[j][0] >= end) {
                     ans[arr[i][2]] = arr[j][2];
